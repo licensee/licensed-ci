@@ -1,5 +1,5 @@
-name: 'Licensed CI'
-description: 'Ensure cached github/licensed license data is valid and up to date'
+name: 'Licensed CI (for licensee/licensed)'
+description: 'Ensure cached licensee/licensed license data is valid and up to date'
 inputs:
   command:
     description: 'Licensed command to run'
