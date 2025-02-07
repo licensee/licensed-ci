@@ -11,7 +11,7 @@ const processEnv = process.env;
 describe('configureGit', () => {
   beforeEach(() => {
     process.env.INPUT_GITHUB_TOKEN = 'token';
-    process.env.GITHUB_REPOSITORY = 'github/licensed-ci';
+    process.env.GITHUB_REPOSITORY = 'licensee/licensed-ci';
     sinon.stub(core, 'group').callsFake((_name, fn) => fn());
   })
 
@@ -516,7 +516,7 @@ describe('findPullRequest', () => {
   let endpoint;
 
   beforeEach(() => {
-    process.env.GITHUB_REPOSITORY = 'github/licensed-ci';
+    process.env.GITHUB_REPOSITORY = 'licensee/licensed-ci';
     endpoint = sinon.stub().resolves({ data: searchResultFixture });
     octokit = {
       rest: {

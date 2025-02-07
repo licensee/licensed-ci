@@ -1,8 +1,8 @@
 # licensed-ci
 
-![test](https://github.com/github/licensed-ci/workflows/Test/badge.svg)
+![test](https://github.com/licensee/licensed-ci/workflows/Test/badge.svg)
 
-A GitHub Action to run [github/licensed](https://github.com/github/licensed) in a CI workflow.
+A GitHub Action to run [licensee/licensed](https://github.com/licensee/licensed) in a CI workflow.
 
 1. Run a workflow to update cached dependency metadata using `licensed cache` and push updates to GitHub
 2. Run `licensed status` to check that license data is available, known, up to date and valid for all dependencies
@@ -56,7 +56,7 @@ The workflow that is run is chosen based on a few different checks:
   1. `push_for_bots`
 - `cleanup_on_success` - Optional, default: `'false'`.  Only applies to the `branch` workflow.  Set to the string `'true'` to close PRs and delete branches used by the `branch` workflow when `licensed status` succeeds on the parent branch.
 - `dependabot_skip` - Optional, default: `'false'`.  Set to the string `'true'` to prepend `[dependabot skip]` to commit messages when licensed-ci is run on a Pull Request or commit authored by Dependabot.  This will signal to Dependabot that it is safe to perform its normal operations even though non-Dependabot commits are present on the Dependabot Pull Request.
-- `sources` - Optional.  Set to a string containing a comma-separated list of [github/licensed sources](https://github.com/github/licensed/tree/master/docs/sources) to add `--sources` CLI arguments to cache and status commands.
+- `sources` - Optional.  Set to a string containing a comma-separated list of [github/licensed sources](https://github.com/licensee/licensed/tree/master/docs/sources) to add `--sources` CLI arguments to cache and status commands.
 - `format` - Optional.  Available values: [`yaml`, `json`]. Set to add a `--format` CLI argument to cache and status commands.
 
 ## Outputs
@@ -111,32 +111,32 @@ jobs:
           bundler-cache: true # improve performance on subsequent runs
           cache-version: 1
       - run: xxx # Install project dependencies here.
-      - uses: github/licensed-ci@v1
+      - uses: licensee/licensed-ci@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           command: "bundle exec licensed" # or bin/licensed when using binstubs
 ```
 
-### Basic non-Ruby usage using [github/setup-licensed](https://github.com/github/setup-licensed)
+### Basic non-Ruby usage using [licensee/setup-licensed](https://github.com/github/setup-licensed)
 
 ```yaml
 jobs:
   licensed:
     steps:
       - uses: actions/checkout@v3
-      
+
       # install licensed.  licensed v4 can only be installed as a gem and requires
       # running ruby/setup-ruby before github/setup-licensed.  If a project doesn't
       # require a specific version of ruby, default to installing latest stable
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ruby
-      - uses: github/setup-licensed@v1
+      - uses: licensee/setup-licensed@v1
         with:
           version: 4.x
 
       - run: xxx # Install project dependencies here.
-      - uses: github/licensed-ci@v1
+      - uses: licensee/licensed-ci@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -149,7 +149,7 @@ jobs:
     steps:
       - # environment setup ...
       - id: licensed # save the id of the step to reference later
-        uses: github/licensed-ci@v1
+        uses: licensee/licensed-ci@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/github-script@0.2.0
@@ -168,7 +168,7 @@ jobs:
 
 #### Accessing private repositories during the licensed-ci action
 
-The default `GITHUB_TOKEN` authentication token provided by GitHub Actions does not have read access to any other GitHub repositories.  If running [github/licensed](https://github.com/github/licensed) in your repo requires access to a private GitHub repository, please set the `github_token` workflow input to a PAT from a user with access to necessary private repositories.
+The default `GITHUB_TOKEN` authentication token provided by GitHub Actions does not have read access to any other GitHub repositories.  If running [licensee/licensed](https://github.com/github/licensed) in your repo requires access to a private GitHub repository, please set the `github_token` workflow input to a PAT from a user with access to necessary private repositories.
 
 #### Using licensed-ci with permission restrictions on GITHUB_TOKEN
 
@@ -222,12 +222,12 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ruby
-      - uses: github/setup-licensed@v1
+      - uses: licensee/setup-licensed@v1
         with:
           version: 4.x
 
       - id: licensed
-        uses: github/licensed-ci@v1
+        uses: licensee/licensed-ci@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/github-script@0.2.0
@@ -257,7 +257,7 @@ You can expect the following support.  See [SUPPORT](SUPPORT.md) for more inform
 
 - bug fixes
 - review of feature request issues
-- review of questions in [github/licensed Discussions](https://github.com/github/licensed/discussions)
+- review of questions in [licensee/licensed Discussions](https://github.com/github/licensed/discussions)
 
 ## Contributions
 
