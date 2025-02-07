@@ -1,7 +1,7 @@
 {
   "name": "licensed-ci",
   "version": "1.11.1",
-  "description": "GitHub Actions CI workflow for github/licensed",
+  "description": "GitHub Actions CI workflow for licensee/licensed",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint lib test",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github/licensed-ci.git"
+    "url": "git+https://github.com/licensee/licensed-ci.git"
   },
   "keywords": [
     "GitHub",
@@ -20,9 +20,9 @@
   "author": "Jon Ruskin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/github/licensed-ci/issues"
+    "url": "https://github.com/licensee/licensed-ci/issues"
   },
-  "homepage": "https://github.com/github/licensed-ci#readme",
+  "homepage": "https://github.com/licensee/licensed-ci#readme",
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/exec": "^1.1.1",
