@@ -159,7 +159,7 @@ jobs:
           script: |
             github.issues.createComment({
               ...context.repo,
-              issue_number: ${{ steps.licensed.outputs.pr_number }}
+              issue_number: ${{ steps.licensed.outputs.pr_number }},
               body: 'My custom PR message'
             })
 ```
@@ -237,7 +237,7 @@ jobs:
           script: |
             github.issues.createComment({
               ...context.repo,
-              issue_number: ${{ steps.licensed.outputs.pr_number }}
+              issue_number: ${{ steps.licensed.outputs.pr_number }},
               body: 'My custom PR message'
             })
 ```
