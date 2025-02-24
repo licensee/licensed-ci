@@ -1,10 +1,9 @@
 ---
-name: "@octokit/request"
-version: 8.4.0
+name: "@octokit/graphql"
+version: 8.1.1
 type: npm
-summary: Send parameterized requests to GitHub's APIs with sensible defaults in browsers
-  and Node
-homepage: 
+summary: GitHub GraphQL API client for browsers and Node
+homepage:
 license: mit
 licenses:
 - sources: LICENSE
