@@ -16,9 +16,9 @@ jobs:
       issues: write
 
     steps:
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v4
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v4
         with:
           cache: npm
           node-version: 20
@@ -28,7 +28,7 @@ jobs:
           ruby-version: ruby
           bundler-cache: true
 
-      - uses: github/setup-licensed@d6b3a6f7058c2b40c06d205e13e15c2418977566 # v1
+      - uses: github/setup-licensed@be11bcbb82e3140b6cf260e647c3efeeca8fcefd # v1
         with:
           version: "4.x"
 
