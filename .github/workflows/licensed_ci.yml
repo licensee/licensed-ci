@@ -1,0 +1,43 @@
+name: Licensed CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  licensed_ci:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          cache: npm
+          node-version: 20
+
+      - uses: ruby/setup-ruby@ab177d40ee5483edb974554986f56b33477e21d0 # v1.265.0
+        with:
+          ruby-version: ruby
+          bundler-cache: true
+
+      - uses: github/setup-licensed@d6b3a6f7058c2b40c06d205e13e15c2418977566 # v1
+        with:
+          version: "4.x"
+
+      - run: npm install
+
+      - run: npm run test
+
+      - name: Run licensed-ci
+        uses: ./
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: push
