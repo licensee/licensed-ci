@@ -15,7 +15,6 @@ const compat = new FlatCompat({
 export default [...compat.extends("eslint:recommended"), {
     languageOptions: {
         globals: {
-            ...globals.commonjs,
             ...globals.node,
             ...globals.jest,
             Atomics: "readonly",
@@ -23,7 +22,7 @@ export default [...compat.extends("eslint:recommended"), {
         },
 
         ecmaVersion: 2022,
-        sourceType: "commonjs",
+        sourceType: "module",
     },
 
     rules: {},

@@ -1,11 +1,14 @@
-const core = require('@actions/core');
-const exec = require('@actions/exec');
-const github = require('@actions/github');
-const path = require('path');
-const sinon = require('sinon');
-const utils = require('../../lib/utils');
-const { CLIOptions } = require('../../lib/cli-options');
-const { run: workflow } = require('../../lib/workflows/push');
+import { createRequire } from 'node:module';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import sinon from 'sinon';
+import { core, exec, github } from '../../lib/actions.js';
+import utils from '../../lib/utils.js';
+import { CLIOptions } from '../../lib/cli-options.js';
+import { run as workflow } from '../../lib/workflows/push.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
 
 const processEnv = process.env;
 

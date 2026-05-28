@@ -1,7 +1,6 @@
 /** @type {import('jest').Config} */
 const config = {
-    // We need to use babel to transform ES modules in Octokit
-    transformIgnorePatterns: ["\\.pnp\\.[^\\\/]+$"],
+    transform: {},
 };
 
-module.exports = config;
+export default config;

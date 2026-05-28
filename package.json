@@ -2,10 +2,11 @@
   "name": "licensed-ci",
   "version": "1.11.1",
   "description": "GitHub Actions CI workflow for licensee/licensed",
+  "type": "module",
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint lib test",
-    "test": "npm run lint && jest",
+    "test": "npm run lint && NODE_OPTIONS=--experimental-vm-modules jest",
     "package": "ncc build lib/index.js -o dist",
     "prepare": "husky install"
   },
