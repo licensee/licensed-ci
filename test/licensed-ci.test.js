@@ -1,8 +1,8 @@
-const core = require('@actions/core');
-const run = require('../lib/licensed-ci');
-const sinon = require('sinon');
-const utils = require('../lib/utils');
-const workflows = require('../lib/workflows');
+import sinon from 'sinon';
+import { core } from '../lib/actions.js';
+import run from '../lib/licensed-ci.js';
+import utils from '../lib/utils.js';
+import workflows from '../lib/workflows/index.js';
 
 const processEnv = process.env;
 

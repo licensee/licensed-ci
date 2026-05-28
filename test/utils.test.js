@@ -1,10 +1,14 @@
-const core = require('@actions/core');
-const exec = require('@actions/exec');
-const fs = require('fs');
-const path = require('path');
-const sinon = require('sinon');
-const utils = require('../lib/utils');
-const { CLIOptions } = require('../lib/cli-options');
+import { createRequire } from 'node:module';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import sinon from 'sinon';
+import { core, exec, io } from '../lib/actions.js';
+import utils from '../lib/utils.js';
+import { CLIOptions } from '../lib/cli-options.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
 
 const processEnv = process.env;
 
@@ -187,9 +191,11 @@ describe('getLicensedInput', () => {
     process.env.INPUT_CONFIG_FILE = configFile;
     process.env.INPUT_SOURCES = sources;
     process.env.INPUT_FORMAT = format;
+    sinon.stub(io, 'which').resolves(command);
   });
 
   afterEach(() => {
+    sinon.restore();
     process.env = processEnv;
   });
 
@@ -203,6 +209,7 @@ describe('getLicensedInput', () => {
 
   it('raises an error when command is not executable', async () => {
     process.env.INPUT_COMMAND = 'non_existent';
+    io.which.rejects(new Error('Unable to locate executable file: non_existent'));
 
     await expect(utils.getLicensedInput()).rejects.toThrow(
       'Unable to locate executable file: non_existent'

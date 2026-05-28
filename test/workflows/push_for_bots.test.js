@@ -1,11 +1,13 @@
-const core = require('@actions/core');
-const exec = require('@actions/exec');
-const path = require('path');
-const sinon = require('sinon');
-const utils = require('../../lib/utils');
-const branch = require('../../lib/workflows/branch');
-const push = require('../../lib/workflows/push');
-const pushForBots = require('../../lib/workflows/push_for_bots');
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import sinon from 'sinon';
+import { core, exec } from '../../lib/actions.js';
+import utils from '../../lib/utils.js';
+import branch from '../../lib/workflows/branch.js';
+import push from '../../lib/workflows/push.js';
+import pushForBots from '../../lib/workflows/push_for_bots.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const processEnv = process.env;
 
