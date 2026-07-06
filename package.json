@@ -32,14 +32,14 @@
     "@octokit/plugin-throttling": "^11.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
+    "@babel/core": "^8.0.1",
     "@eslint/eslintrc": "^3.3.5",
-    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-env": "^8.0.2",
     "@eslint/js": "^10.0.1",
-    "@vercel/ncc": "^0.38",
+    "@vercel/ncc": "^0.44",
     "babel-jest": "^30.4.1",
-    "eslint": "^10.4.0",
-    "globals": "^17.6.0",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
     "husky": "^9.1.7",
     "jest": "^30.4",
     "sinon": "^22.0.0"
