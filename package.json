@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^8.0.1",
-    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/eslintrc": "^3.3.6",
     "@babel/preset-env": "^8.0.2",
     "@eslint/js": "^10.0.1",
     "@vercel/ncc": "^0.44",
